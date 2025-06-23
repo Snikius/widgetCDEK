@@ -14208,6 +14208,15 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
     const selectPoint = () => coreStorage.$patch((state) => {
       state.selected = true;
     });
+    watch(
+      () => __props.tariffs,
+      (val) => {
+        if (val && val.length === 1 && coreStorage.selectedTariff === null) {
+          selectTariff(val[0]);
+        }
+      },
+      { immediate: true }
+    );
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", null, [
         unref(coreStorage).params.sender || unref(coreStorage).params.canChoose && !showTariffs.value ? (openBlock(), createElementBlock("div", _hoisted_1$c, [
