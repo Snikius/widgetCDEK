@@ -14211,7 +14211,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
     watch(
       () => __props.tariffs,
       (val) => {
-        if (val && val.length === 1 && coreStorage.selectedTariff === null) {
+        if (val && val.length > 0 && coreStorage.selectedTariff === null) {
           selectTariff(val[0]);
         }
       },
